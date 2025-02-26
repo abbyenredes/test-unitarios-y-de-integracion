@@ -118,3 +118,19 @@ Para ello primero descargate este repositorio:
 ```textplain
 git clone git@github.com:abbyenredes/test-unitarios-y-de-integracion.git
 ```
+Ingresa en la carpeta:
+
+```textplain
+cd test-unitarios-y-de-integracion/
+```
+Vas a encontrar el archivo calculadora.py que tiene cuatro operaciones básicas. En este ejemplo usaremos la suma, sin embargo te ánimo a que pruebes y realices test de las otras operaciones poniendo en práctica todo lo que te he enseñado.
+
+Empecemos creando nuestro primer archivo al que llamaremos test1_suma.py
+
+> [!TIP]
+> Si estas en visual studio code simplemente crea tu archivo desde  la barra de herramientas.
+
+```textplain
+touch test1_suma.py
+```
+Para este ejemplo estaré aplicando la estructura AAA, en nuestro archivo importa la librería unittest, y configura tu código 
