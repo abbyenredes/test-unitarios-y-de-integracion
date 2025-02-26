@@ -197,7 +197,7 @@ Windows:
 python -m unittest test_suma.py
 ```
 En este caso le samos Q para finalizar la fase input:
-![]()
+![](https://github.com/abbyenredes/Bootcamp-IA-F5/blob/main/Taller_django/img/unittest-ok.gif)
 
 Te has preguntado que pasaria si el resultado esperado fuera uno nada lógico:
 
@@ -207,7 +207,7 @@ class TestSuma(unittest.TestCase):
     def test_suma_numeros_positivos(self):
         # Arrange (Preparación)
         num1 = 3
-        num2 = 2
+        num2 = -2
         resultado_esperado = 5
 
         # Act (Ejecución)
@@ -221,7 +221,7 @@ if __name__ == '__main__':
     
 ```
 
-![]()
+![](https://github.com/abbyenredes/Bootcamp-IA-F5/blob/main/Taller_django/img/unittest-ko.gif)
 
 Ahora te toca a ti, diviértete rompiendo este código de las formas más originales posibles y explora todo lo que unittest tiene para ofrecer.
 ![](https://liveimages.algoworks.com/new-algoworks/wp-content/uploads/2022/05/10153127/testing-manual-testing.gif)
