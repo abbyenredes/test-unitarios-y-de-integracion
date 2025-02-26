@@ -116,5 +116,5 @@ El **testing** es una parte esencial del desarrollo de software. Las **pruebas u
 Para ello primero descargate este repositorio:
 
 ```textplain
-git clone
+git clone git@github.com:abbyenredes/test-unitarios-y-de-integracion.git
 ```
