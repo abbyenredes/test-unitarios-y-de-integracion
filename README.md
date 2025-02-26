@@ -111,7 +111,7 @@ El **testing** es una parte esencial del desarrollo de software. Las **pruebas u
 
 ¡Un buen testing asegura software de alta calidad y libre de errores! ✅  
 
-# Vamos a realizar un test unitario usando unittest
+# Vamos a realizar un test unitario paso a paso usando unittest
 
 Para ello primero descargate este repositorio:
 
@@ -133,4 +133,95 @@ Empecemos creando nuestro primer archivo al que llamaremos test1_suma.py
 ```textplain
 touch test1_suma.py
 ```
-Para este ejemplo estaré aplicando la estructura AAA, en nuestro archivo importa la librería unittest, y configura tu código 
+Para este ejemplo estaré aplicando la estructura AAA, en nuestro archivo importa la librería unittest, importa el módulo que quieres probar en este caso calculadora y de calculadora queremos probar la función suma
+tu código debe verse tal que así:
+
+```python
+import unittest
+from calculadora import suma
+```
+Ahora crearemos una clase que va a heredar el método `TestCase` de unittest y dentro de esta clase creamos tantas pruebas como necesitemos, cabe recalcar que todas las funciones que realices deben empezar con la palabra `test` de lo contrario unittest no las detectará, en nuestro caso vamos a usar en método `assertEqual` para la suma de números positivos.
+
+Te dejo un ejemplo de las pruebas que podemos hacer y te invito a revisar la [documentación de unittest](https://docs.python.org/3/library/unittest.html) para conocer todo lo que puedes hacer:
+
+| Método                   | Verifica que                | Ejemplo                     |
+|--------------------------|----------------------------|-----------------------------|
+| `assertEqual(a, b)`      | `a == b`                   | `assertEqual(5, 5) ✅`      |
+| `assertNotEqual(a, b)`   | `a != b`                   | `assertNotEqual(5, 3) ✅`   |
+| `assertTrue(x)`          | `bool(x) is True`          | `assertTrue(3 > 2) ✅`      |
+| `assertFalse(x)`         | `bool(x) is False`         | `assertFalse(3 < 2) ✅`     |
+| `assertIs(a, b)`         | `a is b`                   | `assertIs(obj1, obj1) ✅`   |
+| `assertIsNot(a, b)`      | `a is not b`               | `assertIsNot(obj1, obj2) ✅`|
+| `assertIsNone(x)`        | `x is None`                | `assertIsNone(None) ✅`     |
+| `assertIsNotNone(x)`     | `x is not None`            | `assertIsNotNone(5) ✅`     |
+| `assertIn(a, b)`         | `a in b`                   | `assertIn(3, [1,2,3]) ✅`   |
+| `assertNotIn(a, b)`      | `a not in b`               | `assertNotIn(4, [1,2,3]) ✅`|
+| `assertIsInstance(a, b)` | `isinstance(a, b)`         | `assertIsInstance(5, int) ✅` |
+| `assertNotIsInstance(a, b)` | `not isinstance(a, b)` | `assertNotIsInstance(5, str) ✅` |
+
+> [!IMPORTANT]
+> Al final de cada test debemos usar la siguiente variable global `if __name__ == '__main__':
+    unittest.main()` ya que de no hacerlo nuestro test no se ejecutará.
+
+
+```python
+class TestSuma(unittest.TestCase):
+
+    def test_suma_numeros_positivos(self):
+        # Arrange (Preparación)
+        num1 = 3
+        num2 = 2
+        resultado_esperado = 5
+
+        # Act (Ejecución)
+        resultado_obtenido = suma(num1, num2)
+
+        # Assert (Verificación)
+        self.assertEqual(resultado_obtenido, resultado_esperado)
+
+if __name__ == '__main__':
+    unittest.main()
+    
+```
+
+Ejecutamos la prueba:
+
+Linux o Mac:
+
+```textplain
+python3 -m unittest test_suma.py
+```
+Windows:
+
+```textplain
+python -m unittest test_suma.py
+```
+En este caso le samos Q para finalizar la fase input:
+![]()
+
+Te has preguntado que pasaria si el resultado esperado fuera uno nada lógico:
+
+```python
+class TestSuma(unittest.TestCase):
+
+    def test_suma_numeros_positivos(self):
+        # Arrange (Preparación)
+        num1 = 3
+        num2 = 2
+        resultado_esperado = 5
+
+        # Act (Ejecución)
+        resultado_obtenido = suma(num1, num2)
+
+        # Assert (Verificación)
+        self.assertEqual(resultado_obtenido, resultado_esperado)
+
+if __name__ == '__main__':
+    unittest.main()
+    
+```
+
+![]()
+
+Ahora te toca a ti, diviértete rompiendo este código de las formas más originales posibles y explora todo lo que unittest tiene para ofrecer.
+![](https://liveimages.algoworks.com/new-algoworks/wp-content/uploads/2022/05/10153127/testing-manual-testing.gif)
